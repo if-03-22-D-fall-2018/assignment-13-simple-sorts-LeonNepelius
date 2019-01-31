@@ -11,9 +11,14 @@
  *-----------------------------------------------------------------------------
 */
 #include "sorting_algorithms.h"
-void init_random(int small_array[], int SMALL)
+#include <math.h>
+#include <unistd.h>
+#include "time.h"
+void init_random(int array[], int length)
 {
-
+  srandom(time(NULL));
+	for (unsigned long i = 0; i < length; i++)
+		array[i] = random();
 }
 void bubble_sort(int small_array[], int SMALL)
 {
