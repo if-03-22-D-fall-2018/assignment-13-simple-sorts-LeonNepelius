@@ -21,7 +21,8 @@
 
 #include <stdio.h>
 #include <string.h>
-
+#include <stdlib.h>
+#include <iostream>
 #include "stopwatch.h"
 #include "sorting_algorithms.h"
 
@@ -39,3 +40,19 @@
 * 2. Copy from this array as many elements as needed into the seven target directories
 *     (to make this efficiently, consider to use the function memcpy() of string.h).
 */
+
+int main(int argc, char const *argv[]) {
+  int first[HUGE];
+  time_t t;
+  srand((unsigned) time(&t));
+  int r;
+  for (size_t i = 0; i < HUGE; i++) {
+    r = rand() % 10;
+    first[i] = r;
+  }
+  start_stopwatch();
+  bubble_sort(first,HUGE);
+  stop_stopwatch();
+  std::cout << "Bubblesort: Tiny: " << elapsed_time() << '\n';
+  return 0;
+}
