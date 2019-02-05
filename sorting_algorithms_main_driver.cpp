@@ -43,8 +43,6 @@
 
 int main(int argc, char const *argv[]) {
   int first[HUGE];
-  time_t t;
-  srand((unsigned) time(&t));
   int r;
   for (size_t i = 0; i < HUGE; i++) {
     r = rand() % 10;
@@ -53,6 +51,8 @@ int main(int argc, char const *argv[]) {
   start_stopwatch();
   bubble_sort(first,HUGE);
   stop_stopwatch();
+  printf("Program is working...\n" );
   std::cout << "Bubblesort: Tiny: " << elapsed_time() << '\n';
+  scanf("\n");
   return 0;
 }
